@@ -119,14 +119,16 @@
                                     <i class="ph-dots-three-vertical"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="{{ route('mis-reserva.recibo-pdf',$re->id) }}" class="dropdown-item">
+                                        <i class="ph-file-pdf me-2"></i>
+                                        Recibo
+                                    </a>
+
                                     <a href="#" class="dropdown-item">
                                         <i class="ph-receipt me-2"></i>
                                         Order details
                                     </a>
-                                    <a href="#" class="dropdown-item">
-                                        <i class="ph-file-pdf me-2"></i>
-                                        Download invoice
-                                    </a>
+                                    
                                     <a href="#" class="dropdown-item">
                                         <i class="ph-chart-bar me-2"></i>
                                         Statistics

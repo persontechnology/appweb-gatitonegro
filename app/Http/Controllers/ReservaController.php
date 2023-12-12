@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Reserva;
 use App\Models\Servicio;
+use App\Models\User;
+use App\Notifications\EnviarReserva;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class ReservaController extends Controller
 {
@@ -82,9 +85,17 @@ class ReservaController extends Controller
             $user->save();
 
             // ENVIAR NOTIFICACION CLIENTE Y ADMIN
-            
+            $users=User::where(function($query){
+                $query->where('id',Auth::id());
+                $query->orWhere('perfil','ADMIN');
+            })->get();
 
-            return redirect()->route('inicio')->with('success',$servicio->nombre,' RESERVADO EXITOSAMENTE');
+            Notification::send($users, new EnviarReserva($reserva));
+
+            $msg='La presente reserva de '.$reserva->servicio->nombre.', ha sido enviada a su correo electrónico '.$reserva->user->email.'. Agradecemos su reserva y le recordamos que deberá
+            acercarse al lugar con el recibo enviado a su correo para efectuar el pago el día de la reserva. La Secretaría se pondrá en contacto
+            con usted a la brevedad posible para validar información y confirmar la reserva.';
+            return redirect()->route('mis-reserva.index')->with('success',$msg);
         }else{
             return back()->withInput($request->all())->with('danger',$servicio->nombre.' NO DISPONIBLE, PORFAVOR SELECIONE OTRA FECHA');
         }
