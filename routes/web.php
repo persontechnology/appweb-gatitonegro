@@ -49,6 +49,9 @@ Route::middleware('auth')->group(function () {
     // mis reservas
     Route::get('mis-reservas',[ MisReservas::class,'index'])->name('mis-reserva.index');
     Route::get('mis-reservas-recibo/{id}',[ MisReservas::class,'reciboPdf'])->name('mis-reserva.recibo-pdf');
+    Route::get('mis-reservas-eliminar/{id}',[ MisReservas::class,'eliminar'])->name('mis-reserva.eliminar');
+    Route::get('mis-reservas-detalle/{id}',[ MisReservas::class,'detalle'])->name('mis-reserva.detalle');
+    
 
 
 

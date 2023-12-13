@@ -4,7 +4,7 @@
             <div class="page-header-content container d-lg-flex">
                 <div class="d-flex">
                     <h4 class="page-title mb-0">
-                        Inicio - <span class="fw-normal">MIS RESERVAS</span>
+                        MIS RESERVAS - <span class="fw-normal">DETALLE</span>
                     </h4>
 
                     <a href="#page_header" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
@@ -17,8 +17,8 @@
 
                         <div class="d-inline-flex mt-3 mt-sm-0">
                             
-                            <a href="{{ url('/') }}" class="btn btn-outline-primary btn-icon w-32px h-32px rounded-pill ms-3">
-                                <i class="ph-plus"></i>
+                            <a href="{{ route('mis-reserva.index') }}" class="btn btn-outline-danger btn-icon w-32px h-32px rounded-pill ms-3">
+                                <i class="ph ph-x"></i>
                             </a>
                         </div>
                     </div>
@@ -27,19 +27,73 @@
         </div>
     </x-slot>
 
+    @php
+        $servicio=$reserva->servicio;
+    @endphp
+    <div class="card">
+        <div class="card-header">DETALLE DE RESERVA</div>
+        <div class="card-body">
+            <p><strong>{{ $servicio->nombre }}</strong></p>
+            <p>{{ $servicio->detalle }}</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <img id="img_01" src="{{ Storage::url($servicio->foto_1) }}" data-zoom-image="{{ Storage::url($servicio->foto_1) }}" width="190" />
 
+                <div id="gal1">
+
+                    <a href="#" data-image="{{ Storage::url($servicio->foto_1) }}" data-zoom-image="{{ Storage::url($servicio->foto_1) }}">
+                        <img id="img_01" src="{{ Storage::url($servicio->foto_1) }}" width="45"/>
+                    </a>
+
+                    <a href="#" data-image="{{ Storage::url($servicio->foto_2) }}" data-zoom-image="{{ Storage::url($servicio->foto_2) }}">
+                        <img id="img_01" src="{{ Storage::url($servicio->foto_2) }}" width="45"/>
+                    </a>
+
+                    <a href="#" data-image="{{ Storage::url($servicio->foto_3) }}" data-zoom-image="{{ Storage::url($servicio->foto_3) }}">
+                        <img id="img_01" src="{{ Storage::url($servicio->foto_3) }}" width="45" />
+                    </a>
+
+                    <a href="#" data-image="{{ Storage::url($servicio->foto_4) }}" data-zoom-image="{{ Storage::url($servicio->foto_4) }}">
+                        <img id="img_01" src="{{ Storage::url($servicio->foto_4) }}" width="45"/>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                
+                <ul class="list-group list-group-flush border-top">
+                    <li class="list-group-item d-flex">
+                        CAPACIDAD PARA {{ $servicio->capacidad_personas }} PERSONAS
+                    </li>
+                    <li class="list-group-item d-flex">
+                        Dimensiones: {{ $servicio->dimensiones }}
+                        
+                    </li>
+                    <li class="list-group-item d-flex">
+                        PRECIO ${{ $servicio->precio_hora }} POR HORA
+                        
+                    </li>
+                    <li class="list-group-item d-flex">
+                        CATEGORIA: {{ $servicio->tipoReserva->nombre }}                                
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+
+        </div>
+       
+    </div>
 
     <!-- Latest orders -->
     <div class="card">
-        <div class="card-header d-flex py-1">
-            <h5 class="py-3 mb-0">Últimas reservas</h5>
         
-            <div class="d-inline-flex align-items-center ms-auto">
-                <span class="badge bg-warning fw-semibold">{{ $reservas->where('estado','SOLICITADO')->count() }} solicitados</span>
-                <span class="badge bg-success fw-semibold mx-1">{{ $reservas->where('estado','RESERVADO')->count() }} reservados</span>
-                <span class="badge bg-danger fw-semibold mx-1">{{ $reservas->where('estado','RECHAZADO')->count() }} rechazados</span>
+        
+            <div class="card-body">
+                <h4 class="card-title">DETALLE DE LA RESERVA</h4>
             </div>
-        </div>
+        
 
         <div class="table-responsive">
             <table class="table text-nowrap">
@@ -58,7 +112,9 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($reservas as $re)
+                   @php
+                       $re=$reserva;
+                   @endphp
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
@@ -134,7 +190,7 @@
                             </div>
                         </td>
                     </tr>
-                    @endforeach
+                   
                     
                     
                 </tbody>
@@ -143,5 +199,37 @@
     </div>
     <!-- /latest orders -->
 
-    
+    @prepend('scripts')
+        <style>
+            #gal1 img {
+                border: 2px solid white;
+            }
+
+            /*Change the colour*/
+            .active img {
+                border: 2px solid #333 !important;
+            }
+        </style>
+    @endprepend
+
+
+   @push('scripts')
+   <script>
+    //initiate the plugin and pass the id of the div containing gallery images
+        $('#img_01').ezPlus({
+            gallery: 'gal1', cursor: 'pointer', galleryActiveClass: 'active',
+            imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
+        });
+
+        //pass the images to Fancybox
+        $('#img_01').bind('click', function (e) {
+            var ez = $('#img_01').data('ezPlus');
+            $.fancyboxPlus(ez.getGalleryList());
+            return false;
+        });
+        
+      
+   
+   </script>
+    @endpush
 </x-app-layout>

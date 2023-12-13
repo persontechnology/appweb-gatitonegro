@@ -6,6 +6,8 @@ use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+use PhpParser\Node\Stmt\TryCatch;
+
 class MisReservas extends Controller
 {
     public function index(){
@@ -25,5 +27,24 @@ class MisReservas extends Controller
         );
         $pdf = PDF::loadView('mis-reservas.recibo-pdf',$data);
         return $pdf->inline('invoice.pdf');
+    }
+
+    public function eliminar($id)  {
+        $reserva=Reserva::findOrFail($id);
+        
+        try {
+            $reserva->delete();
+            return redirect()->route('mis-reserva.index')->with('success','RESERVA ELIMINADO EXITOSAMENTE');    
+        } catch (\Throwable $th) {
+            return redirect()->route('mis-reserva.index')->with('danger','RESERVA NO ELIMINADO YA QUE SE ENCUENTRA RELACIONADO CON OTROS MODULOS DLE SISTEMA');    
+        }   
+    }
+
+    public function detalle($id) {
+        $reserva=Reserva::findOrFail($id);
+        $data = array(
+            'reserva'=>$reserva
+        );
+        return view('mis-reservas.detalle',$data);
     }
 }

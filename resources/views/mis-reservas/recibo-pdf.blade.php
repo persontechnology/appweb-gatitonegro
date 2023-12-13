@@ -91,7 +91,8 @@
 </head>
 <body>
     <header>
-        <img src="{{ public_path('assets/images/logo-gatitonegro.jpg') }}" width="120" alt="Logo de Gatito Negro">
+        
+        <img src="{{ public_path('assets/images/logo-gatitonegro.png') }}" width="120" alt="Logo de Gatito Negro">
         <h1>RECIBO - {{ config('app.name','') }}</h1>
     </header>
 
