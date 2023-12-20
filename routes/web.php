@@ -3,8 +3,11 @@
 use App\Http\Controllers\MisReservas;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\ReservasAdminController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\UserController;
 use App\Models\Servicio;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +27,14 @@ Route::get('/', function () {
 })->name('inicio');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $data = array(
+        'solicitados'=>Auth::user()->reservas->where('estado','SOLICITADO'),
+        'reservados'=>Auth::user()->reservas->where('estado','RESERVADO'),
+        'rechazados'=>Auth::user()->reservas->where('estado','RECHAZADO')
+    );
+
+    return view('dashboard',$data);
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -38,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('servicios-fotos/{id}',[ ServicioController::class,'fotos'])->name('servicios.fotos');
     Route::post('servicios-fotos-guardar',[ ServicioController::class,'fotosGuardar'])->name('servicios.fotos-guardar');
     
+    // usuarios
+    Route::resource('usuarios', UserController::class);
 
 
     // reservas
@@ -51,6 +63,12 @@ Route::middleware('auth')->group(function () {
     Route::get('mis-reservas-recibo/{id}',[ MisReservas::class,'reciboPdf'])->name('mis-reserva.recibo-pdf');
     Route::get('mis-reservas-eliminar/{id}',[ MisReservas::class,'eliminar'])->name('mis-reserva.eliminar');
     Route::get('mis-reservas-detalle/{id}',[ MisReservas::class,'detalle'])->name('mis-reserva.detalle');
+
+
+
+    // reservas admin
+    Route::resource('reservas-admin', ReservasAdminController::class);
+    Route::post('reservas-admin-estado/{id}', [ReservasAdminController::class,'estado'])->name('reservas-admin.estado');
     
 
 

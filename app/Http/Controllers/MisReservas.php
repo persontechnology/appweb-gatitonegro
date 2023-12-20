@@ -33,8 +33,14 @@ class MisReservas extends Controller
         $reserva=Reserva::findOrFail($id);
         
         try {
-            $reserva->delete();
-            return redirect()->route('mis-reserva.index')->with('success','RESERVA ELIMINADO EXITOSAMENTE');    
+            
+            if($reserva->user->id===Auth::id()){
+                $reserva->delete();
+                return redirect()->route('mis-reserva.index')->with('success','RESERVA ELIMINADO EXITOSAMENTE');    
+            }else{
+                return redirect()->route('mis-reserva.index')->with('info','NO SE PUEDE ELIMINAR PORQUE LA RESERVA NO PERTENECE A USTED.');    
+            }
+            
         } catch (\Throwable $th) {
             return redirect()->route('mis-reserva.index')->with('danger','RESERVA NO ELIMINADO YA QUE SE ENCUENTRA RELACIONADO CON OTROS MODULOS DLE SISTEMA');    
         }   
@@ -42,9 +48,13 @@ class MisReservas extends Controller
 
     public function detalle($id) {
         $reserva=Reserva::findOrFail($id);
-        $data = array(
-            'reserva'=>$reserva
-        );
-        return view('mis-reservas.detalle',$data);
+        if($reserva->user->id==Auth::id()){
+            $data = array(
+                'reserva'=>$reserva
+            );
+            return view('mis-reservas.detalle',$data);
+        }else{
+            return abort(404);
+        }
     }
 }

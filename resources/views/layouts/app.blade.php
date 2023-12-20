@@ -33,6 +33,7 @@
 	<script src="{{ asset('assets/demo/charts/pages/dashboard_6/progress_sortable.js') }}"></script>
 	<script src="{{ asset('assets/demo/charts/pages/dashboard_6/bars_grouped.js') }}"></script>
 	<script src="{{ asset('assets/demo/charts/pages/dashboard_6/line_label_marks.js') }}"></script>
+	<script src="{{ asset('assets/demo/pages/datatables_basic.js') }}"></script>
 
 	<script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
 	<!-- /theme JS files -->
@@ -73,7 +74,7 @@
 
 					@if (Auth::user()->perfil==='ADMIN')
 					<li class="nav-item nav-item-dropdown-xl dropdown">
-						<a href="#" class="navbar-nav-link dropdown-toggle rounded {{ Route::is(['servicios*']?'active':'') }}" data-bs-toggle="dropdown">
+						<a href="#" class="navbar-nav-link dropdown-toggle rounded {{ Route::is('servicios*','reservas-admin*','usuarios.*')?'active':'' }}" data-bs-toggle="dropdown">
 							<i class="ph-note-blank me-2"></i>
 							ADMINISTRACIÓN
 						</a>
@@ -81,8 +82,8 @@
 						<div class="dropdown-menu">
 							
 							<a href="{{ route('servicios.index') }}" class="dropdown-item rounded">SERVICIOS</a>
-							<a href="{{ route('dashboard') }}" class="dropdown-item rounded">RESERVACIONES</a>
-							<a href="{{ route('dashboard') }}" class="dropdown-item rounded">USUARIOS</a>
+							<a href="{{ route('reservas-admin.index') }}" class="dropdown-item rounded">RESERVACIONES</a>
+							<a href="{{ route('usuarios.index') }}" class="dropdown-item rounded">USUARIOS</a>
 						</div>
 					</li>
 					@endif
@@ -114,8 +115,8 @@
 							<i class="ph-user-circle me-2"></i>
 							Mi perfil
 						</a>
-						<a href="#" class="dropdown-item">
-							<i class="ph-currency-circle-dollar me-2"></i>
+						<a href="{{ route('mis-reserva.index') }}" class="dropdown-item">
+							<i class="ph ph-shopping-bag-open me-2"></i>
 							Mis reservas
 						</a>
 						
@@ -179,32 +180,7 @@
 					<div class="container-fluid">
 						<span>&copy; 2022 <a href="#">{{ config('app.name') }}</a></span>
 
-						<ul class="nav">
-							<li class="nav-item">
-								<a href="https://kopyov.ticksy.com/" class="navbar-nav-link navbar-nav-link-icon rounded" target="_blank">
-									<div class="d-flex align-items-center mx-md-1">
-										<i class="ph-lifebuoy"></i>
-										<span class="d-none d-md-inline-block ms-2">Support</span>
-									</div>
-								</a>
-							</li>
-							<li class="nav-item ms-md-1">
-								<a href="https://demo.interface.club/limitless/demo/Documentation/index.html" class="navbar-nav-link navbar-nav-link-icon rounded" target="_blank">
-									<div class="d-flex align-items-center mx-md-1">
-										<i class="ph-file-text"></i>
-										<span class="d-none d-md-inline-block ms-2">Docs</span>
-									</div>
-								</a>
-							</li>
-							<li class="nav-item ms-md-1">
-								<a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link navbar-nav-link-icon text-primary bg-primary bg-opacity-10 fw-semibold rounded" target="_blank">
-									<div class="d-flex align-items-center mx-md-1">
-										<i class="ph-shopping-cart"></i>
-										<span class="d-none d-md-inline-block ms-2">Purchase</span>
-									</div>
-								</a>
-							</li>
-						</ul>
+						
 					</div>
 				</div>
 				<!-- /footer -->
@@ -219,191 +195,6 @@
 	<!-- /page content -->
 
 
-	<!-- Notifications -->
-	<div class="offcanvas offcanvas-end" tabindex="-1" id="notifications">
-		<div class="offcanvas-header py-0">
-			<h5 class="offcanvas-title py-3">Activity</h5>
-			<button type="button" class="btn btn-light btn-sm btn-icon border-transparent rounded-pill" data-bs-dismiss="offcanvas">
-				<i class="ph-x"></i>
-			</button>
-		</div>
-
-		<div class="offcanvas-body p-0">
-			<div class="bg-light fw-medium py-2 px-3">New notifications</div>
-			<div class="p-3">
-				<div class="d-flex align-items-start mb-3">
-					<a href="#" class="status-indicator-container me-3">
-						<img src="../../../assets/images/demo/users/face1.jpg" class="w-40px h-40px rounded-pill" alt="">
-						<span class="status-indicator bg-success"></span>
-					</a>
-					<div class="flex-fill">
-						<a href="#" class="fw-semibold">James</a> has completed the task <a href="#">Submit documents</a> from <a href="#">Onboarding</a> list
-
-						<div class="bg-light rounded p-2 my-2">
-							<label class="form-check ms-1">
-								<input type="checkbox" class="form-check-input" checked disabled>
-								<del class="form-check-label">Submit personal documents</del>
-							</label>
-						</div>
-
-						<div class="fs-sm text-muted mt-1">2 hours ago</div>
-					</div>
-				</div>
-
-				<div class="d-flex align-items-start mb-3">
-					<a href="#" class="status-indicator-container me-3">
-						<img src="../../../assets/images/demo/users/face3.jpg" class="w-40px h-40px rounded-pill" alt="">
-						<span class="status-indicator bg-warning"></span>
-					</a>
-					<div class="flex-fill">
-						<a href="#" class="fw-semibold">Margo</a> has added 4 users to <span class="fw-semibold">Customer enablement</span> channel
-
-						<div class="d-flex my-2">
-							<a href="#" class="status-indicator-container me-1">
-								<img src="../../../assets/images/demo/users/face10.jpg" class="w-32px h-32px rounded-pill" alt="">
-								<span class="status-indicator bg-danger"></span>
-							</a>
-							<a href="#" class="status-indicator-container me-1">
-								<img src="../../../assets/images/demo/users/face11.jpg" class="w-32px h-32px rounded-pill" alt="">
-								<span class="status-indicator bg-success"></span>
-							</a>
-							<a href="#" class="status-indicator-container me-1">
-								<img src="../../../assets/images/demo/users/face12.jpg" class="w-32px h-32px rounded-pill" alt="">
-								<span class="status-indicator bg-success"></span>
-							</a>
-							<a href="#" class="status-indicator-container me-1">
-								<img src="../../../assets/images/demo/users/face13.jpg" class="w-32px h-32px rounded-pill" alt="">
-								<span class="status-indicator bg-success"></span>
-							</a>
-							<button type="button" class="btn btn-light btn-icon d-inline-flex align-items-center justify-content-center w-32px h-32px rounded-pill p-0">
-								<i class="ph-plus ph-sm"></i>
-							</button>
-						</div>
-
-						<div class="fs-sm text-muted mt-1">3 hours ago</div>
-					</div>
-				</div>
-
-				<div class="d-flex align-items-start">
-					<div class="me-3">
-						<div class="bg-warning bg-opacity-10 text-warning rounded-pill">
-							<i class="ph-warning p-2"></i>
-						</div>
-					</div>
-					<div class="flex-1">
-						Subscription <a href="#">#466573</a> from 10.12.2021 has been cancelled. Refund case <a href="#">#4492</a> created
-						<div class="fs-sm text-muted mt-1">4 hours ago</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="bg-light fw-medium py-2 px-3">Older notifications</div>
-			<div class="p-3">
-				<div class="d-flex align-items-start mb-3">
-					<a href="#" class="status-indicator-container me-3">
-						<img src="../../../assets/images/demo/users/face25.jpg" class="w-40px h-40px rounded-pill" alt="">
-						<span class="status-indicator bg-success"></span>
-					</a>
-					<div class="flex-fill">
-						<a href="#" class="fw-semibold">Nick</a> requested your feedback and approval in support request <a href="#">#458</a>
-
-						<div class="my-2">
-							<a href="#" class="btn btn-success btn-sm me-1">
-								<i class="ph-checks ph-sm me-1"></i>
-								Approve
-							</a>
-							<a href="#" class="btn btn-light btn-sm">
-								Review
-							</a>
-						</div>
-
-						<div class="fs-sm text-muted mt-1">3 days ago</div>
-					</div>
-				</div>
-
-				<div class="d-flex align-items-start mb-3">
-					<a href="#" class="status-indicator-container me-3">
-						<img src="../../../assets/images/demo/users/face24.jpg" class="w-40px h-40px rounded-pill" alt="">
-						<span class="status-indicator bg-grey"></span>
-					</a>
-					<div class="flex-fill">
-						<a href="#" class="fw-semibold">Mike</a> added 1 new file(s) to <a href="#">Product management</a> project
-
-						<div class="bg-light rounded p-2 my-2">
-							<div class="d-flex align-items-center">
-								<div class="me-2">
-									<img src="../../../assets/images/icons/pdf.svg" width="34" height="34" alt="">
-								</div>
-								<div class="flex-fill">
-									new_contract.pdf
-									<div class="fs-sm text-muted">112KB</div>
-								</div>
-								<div class="ms-2">
-									<button type="button" class="btn btn-flat-dark text-body btn-icon btn-sm border-transparent rounded-pill">
-										<i class="ph-arrow-down"></i>
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="fs-sm text-muted mt-1">1 day ago</div>
-					</div>
-				</div>
-
-				<div class="d-flex align-items-start mb-3">
-					<div class="me-3">
-						<div class="bg-success bg-opacity-10 text-success rounded-pill">
-							<i class="ph-calendar-plus p-2"></i>
-						</div>
-					</div>
-					<div class="flex-fill">
-						All hands meeting will take place coming Thursday at 13:45.
-
-						<div class="my-2">
-							<a href="#" class="btn btn-primary btn-sm">
-								<i class="ph-calendar-plus ph-sm me-1"></i>
-								Add to calendar
-							</a>
-						</div>
-
-						<div class="fs-sm text-muted mt-1">2 days ago</div>
-					</div>
-				</div>
-
-				<div class="d-flex align-items-start mb-3">
-					<a href="#" class="status-indicator-container me-3">
-						<img src="../../../assets/images/demo/users/face4.jpg" class="w-40px h-40px rounded-pill" alt="">
-						<span class="status-indicator bg-danger"></span>
-					</a>
-					<div class="flex-fill">
-						<a href="#" class="fw-semibold">Christine</a> commented on your community <a href="#">post</a> from 10.12.2021
-
-						<div class="fs-sm text-muted mt-1">2 days ago</div>
-					</div>
-				</div>
-
-				<div class="d-flex align-items-start mb-3">
-					<div class="me-3">
-						<div class="bg-primary bg-opacity-10 text-primary rounded-pill">
-							<i class="ph-users-four p-2"></i>
-						</div>
-					</div>
-					<div class="flex-fill">
-						<span class="fw-semibold">HR department</span> requested you to complete internal survey by Friday
-
-						<div class="fs-sm text-muted mt-1">3 days ago</div>
-					</div>
-				</div>
-
-				<div class="text-center">
-					<div class="spinner-border" role="status">
-						<span class="visually-hidden">Loading...</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /notifications -->
 
 
 	<!-- Demo config -->
@@ -470,7 +261,7 @@
 		</div>
 
 		<div class="border-top text-center py-2 px-3">
-			<a href="{{ url('/') }}" class="btn btn-yellow fw-semibold w-100 my-1">
+			<a href="{{ url('/') }}" class="btn btn-success fw-semibold w-100 my-1">
 				<i class="ph-shopping-cart me-2"></i>
 				SERVICIOS
 			</a>
@@ -500,12 +291,58 @@
 		</div>
 	</div>
 
+{{-- cambiar estado de reserva --}}
+	<form action="" id="formEstado" method="POST">
+		@csrf
+		<div id="modal_centered_estado" class="modal fade" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">CONFIRMACIÓN</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<div class="modal-body">
+						<h6 class="fw-semibold">¿ESTÁ SEGURO DE CAMBIAR ESTADO A?</h6>
+						<div class="border p-2 rounded">
+							<div class="d-flex align-items-center">
+								<input type="radio" name="estado" value="RESERVADO" id="dr_ls_c" required>
+								<label class="ms-2" for="dr_ls_c">RESERVAR</label>
+							</div>
+
+							<div class="d-flex align-items-center mb-2">
+								<input type="radio" name="estado" id="dr_ls_u" value="RECHAZADO" required>
+								<label class="ms-2" for="dr_ls_u">RECHAZAR</label>
+							</div>
+						</div>
+
+						<div class="form-floating mt-2">
+							<textarea class="form-control" autofocus name="detalle_admin" placeholder="Placeholder" style="height: 100px;"></textarea>
+							<label>INGRESE DETALLE</label>
+						</div>
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">NO</button>
+						<button type="submit" class="btn btn-success">SI</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
     <script>
         function fnEliminar(arg){
             $('#urleliminar').attr('href',$(arg).data('url')) 
             $('#modal_centered').modal('show');
             $('#mensaje').html($(arg).data('mensaje'))
         }
+
+		function cambiarEstado(arg){
+			$('#formEstado').attr('action',$(arg).data('url')) 
+            $('#modal_centered_estado').modal('show');
+		}
     </script>
 
 

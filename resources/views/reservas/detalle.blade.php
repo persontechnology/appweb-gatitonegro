@@ -182,7 +182,7 @@
                         <div class="mb-2">
                             <label class="form-label">FECHA Y HORA DE INICIO</label>
                             <div class="form-control-feedback form-control-feedback-start">
-                                <input type="datetime-local" name="fecha_inicio" value="{{ old('fecha_inicio') }}" class="form-control @error('fecha_inicio') is-invalid @enderror" placeholder="" required>
+                                <input type="datetime-local" name="fecha_inicio" value="{{ old('fecha_inicio',Carbon\Carbon::now()->format('Y-m-d H:i')) }}" class="form-control @error('fecha_inicio') is-invalid @enderror" placeholder="" required>
                                 <div class="form-control-feedback-icon">
                                     <i class="ph ph-calendar text-muted"></i>
                                 </div>

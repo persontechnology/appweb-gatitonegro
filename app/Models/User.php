@@ -26,6 +26,7 @@ class User extends Authenticatable
         'identificacion',
         'telefono',
         'direccion',
+        'estado'
     ];
 
     /**
@@ -51,6 +52,6 @@ class User extends Authenticatable
 
     public function reservas()
     {
-        return $this->hasMany(Reserva::class);
+        return $this->hasMany(Reserva::class)->latest();
     }
 }

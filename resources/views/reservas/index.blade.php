@@ -4,7 +4,7 @@
             <div class="page-header-content container d-lg-flex">
                 <div class="d-flex">
                     <h4 class="page-title mb-0">
-                        Inicio - <span class="fw-normal">MIS RESERVAS</span>
+                        ADMINISTRACIÓN - <span class="fw-normal">RESERVAS</span>
                     </h4>
 
                     <a href="#page_header" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
@@ -42,9 +42,10 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table text-nowrap datatable-basic table-sm">
+            <table class="table text-nowraps datatable-basic table-sm">
                 <thead>
                     <tr>
+                        <th class="text-center" style="width:50%;"><i class="ph ph-toggle-right"></i></th>
                         <th>SERVICIO</th>
                         <th>PRECIO</th>
                         <th>FECHA INICIO</th>
@@ -60,6 +61,11 @@
 
                     @foreach ($reservas as $re)
                     <tr>
+                        <td>
+                            <button type="button" onclick="cambiarEstado(this);" data-url="{{ route('reservas-admin.estado',$re->id) }}" class="btn btn-light">
+                                RESERVAR/RECHAZAR
+                            </button>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <a href="{{ Storage::url($re->servicio->foto_1) }}" class="me-3">
@@ -120,14 +126,15 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a href="{{ route('mis-reserva.detalle',$re->id) }}" class="dropdown-item">
-                                        <i class="ph ph-info me-2"></i>
+                                        <i class="ph ph-article me-2"></i>
                                         Detalle
                                     </a>
-
+                                    
                                     <a href="{{ route('mis-reserva.recibo-pdf',$re->id) }}" class="dropdown-item">
                                         <i class="ph-file-pdf me-2"></i>
                                         Recibo
                                     </a>
+
                                     @if ($re->estado=='SOLICITADO')
                                     <button type="button" data-mensaje="{{ $re->servicio->nombre }}" data-url="{{ route('mis-reserva.eliminar',$re->id) }}" class="dropdown-item" onclick="fnEliminar(this)">
                                         <i class="ph ph-trash-simple me-2"></i>Eliminar

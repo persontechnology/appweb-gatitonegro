@@ -70,7 +70,7 @@ var EchartsAreaGradientLight = function() {
             //
 
             // Define variables
-            var axisData = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            var axisData = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
                 data = [30, 79, 50, 60, 10, 95, 40],
                 color = '#0092f6',
                 lineWidth = 1.5;
@@ -106,7 +106,7 @@ var EchartsAreaGradientLight = function() {
                     textStyle: {
                         color: 'var(--black)'
                     },
-                    formatter: '{b} <br/> {c} {a}',
+                    formatter: '{b}',
                     axisPointer: {
                         lineStyle: {
                             color: color,
@@ -156,7 +156,7 @@ var EchartsAreaGradientLight = function() {
 
                 // Add series
                 series: [{
-                    name: 'total visitors',
+                    name: '',
                     type: 'line',
                     symbol: 'circle',
                     smooth: true,
@@ -209,7 +209,7 @@ var EchartsAreaGradientLight = function() {
             //
 
             // Define variables
-            var axisData = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            var axisData = ['Lunes', 'Martes', 'Miercoles', 'Juves', 'Viernes', 'Sabado', 'Domingo'],
                 data = [10, 52, 20, 59, 20, 90, 35],
                 color = '#ff7043',
                 lineWidth = 1.5;
@@ -236,7 +236,7 @@ var EchartsAreaGradientLight = function() {
                 tooltip: {
                     trigger: 'axis',
                     padding: [10, 15],
-                    formatter: '{b} <br/> {c} {a}',
+                    formatter: '{b}',
                     axisPointer: {
                         lineStyle: {
                             color: color,
@@ -339,7 +339,7 @@ var EchartsAreaGradientLight = function() {
             //
 
             // Define variables
-            var axisData = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            var axisData = ['Lunes', 'Martes', 'Miercoles', 'Juves', 'Viernes', 'Sabado', 'Domingo'],
                 data = [50, 36, 59, 20, 50, 35, 70],
                 color = '#66bb6a',
                 lineWidth = 1.5;
@@ -366,7 +366,7 @@ var EchartsAreaGradientLight = function() {
                 tooltip: {
                     trigger: 'axis',
                     padding: [10, 15],
-                    formatter: '{b} <br/> {c} {a}',
+                    formatter: '{b}',
                     axisPointer: {
                         lineStyle: {
                             color: color,
