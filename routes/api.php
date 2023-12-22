@@ -14,6 +14,14 @@ Route::post('/reset-password',[AuthController::class,'resetPassword']);
 // inicio
 Route::get('/listado-reservas',[InicioController::class,'listadoReservas']);
 Route::post('/obtener-usuario',[InicioController::class,'obtenerUsuario']);
+Route::post('/reservar-servicio',[InicioController::class,'reservarServicio']);
+
+// reservas
+Route::post('/listar-reservas-solicitados',[InicioController::class,'listarReservasSolicitados']);
+Route::post('/reservar-rechazar-reserva',[InicioController::class,'reservarRechazarReserva']);
+Route::post('/listar-mis-reservas',[InicioController::class,'listarMisReservas']);
+Route::post('/reservar-eliminar',[InicioController::class,'reservarEliminar']);
+
 
 
 

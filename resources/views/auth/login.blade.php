@@ -6,7 +6,7 @@
                 
                 <div class="text-center mb-3">
                     <div class="d-inline-flex align-items-center justify-content-center mb-4 mt-2">
-                        <img src="../../../assets/images/logo_icon.svg" class="h-48px" alt="">
+                        <img src="{{ asset('assets/images/logo_icon.svg') }}" class="h-48px" alt="">
                     </div>
                     <h5 class="mb-0">Ingrese a su cuenta</h5>
                     <span class="d-block text-muted">Ingrese sus credenciales a continuación</span>

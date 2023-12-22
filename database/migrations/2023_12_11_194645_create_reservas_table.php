@@ -27,8 +27,8 @@ return new class extends Migration
             $table->dateTime('fecha_inicio')->nullable();
             $table->dateTime('fecha_final')->nullable();
             $table->integer('cantidad_horas')->nullable();
-            $table->string('detalle_admin')->nullable();
-            $table->string('detalle_cliente')->nullable();
+            $table->text('detalle_admin')->nullable();
+            $table->text('detalle_cliente')->nullable();
             $table->enum('estado',['SOLICITADO','RESERVADO','RECHAZADO'])->default('SOLICITADO');
 
         });

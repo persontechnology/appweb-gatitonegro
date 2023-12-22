@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $email='admin@gmail.com';
+        $email='persontechnologys@gmail.com';
         $user=User::where('email',$email)->first();
         if(!$user){
             $user=new User();
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             $user->save();
         }
 
-
+        
         $tiposReservas = array(
             'Canchas de boli', 
             'Canchas de fútbol', 
