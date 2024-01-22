@@ -23,6 +23,8 @@ Route::post('/listar-mis-reservas',[InicioController::class,'listarMisReservas']
 Route::post('/reservar-eliminar',[InicioController::class,'reservarEliminar']);
 
 
+Route::get('/datos-sensores',[InicioController::class,'datos']);
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

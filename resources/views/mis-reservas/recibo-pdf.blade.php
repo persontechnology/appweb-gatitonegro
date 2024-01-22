@@ -24,9 +24,7 @@
             margin-top: 10px;
         }
 
-        h1 {
-            color: #007bff;
-        }
+        
 
         p {
             margin-bottom: 10px;

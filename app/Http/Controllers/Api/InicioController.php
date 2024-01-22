@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dato;
 use App\Models\Reserva;
 use App\Models\Servicio;
 use App\Models\User;
@@ -208,6 +209,13 @@ class InicioController extends Controller
                 'descripcion'=>$reserva->servicio->nombre.' no eliminado, ya que contiene información relacionada con otras areas del sistema'
             ]);
         }
+    }
+
+
+    public function datos(Request $request) {
+        $dato=Dato::create([
+            'detalle'=>$request->all()
+        ]);
     }
     
 }
