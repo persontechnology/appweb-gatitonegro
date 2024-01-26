@@ -3,7 +3,7 @@
     
     <div class="card-body">
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            ¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva.
         </div>
     
         <!-- Session Status -->
@@ -21,7 +21,7 @@
     
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button>
-                    {{ __('Email Password Reset Link') }}
+                    Enviar enlace para restablecer contraseña de correo electrónico
                 </x-primary-button>
             </div>
         </form>

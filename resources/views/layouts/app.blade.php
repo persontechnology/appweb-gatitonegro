@@ -46,7 +46,7 @@
 	<div class="navbar navbar-dark bg-pink navbar-expand-xl navbar-static shadow">
 		<div class="container-fluid">
 			<div class="navbar-brand flex-1">
-				<a href="index.html" class="d-inline-flex align-items-center">
+				<a href="{{ route('inicio') }}" class="d-inline-flex align-items-center">
 					<img src="{{ asset('assets/images/logo_icon.svg') }}" alt="">
 					<img src="{{ asset('assets/images/logo_text_light.svg') }}" class="d-none d-sm-inline-block h-16px invert-dark ms-3" alt="">
 				</a>
@@ -127,7 +127,7 @@
 						<form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-							<a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">
+							<a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">
 								<i class="ph-sign-out me-2"></i>
 								Salir
 							</a>
