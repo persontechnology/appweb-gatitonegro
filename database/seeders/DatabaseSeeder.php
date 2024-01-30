@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $email='persontechnologys@gmail.com';
+        $email='salgueromariajose18@gmail.com';
         $user=User::where('email',$email)->first();
         if(!$user){
             $user=new User();
