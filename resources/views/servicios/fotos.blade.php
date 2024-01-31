@@ -37,11 +37,10 @@
                         <strong>FOTO 1</strong>
                     </div>
                     <div class="card-body">
-                        @if (Storage::exists($servicio->foto_1??''))
-                            <a href="{{ Storage::url($servicio->foto_1) }}" target="_blanck">
-                                <img src="{{ Storage::url($servicio->foto_1) }}" class="img-fluid rounded-top" alt="">
-                            </a>
-                        @endif
+                        
+                        
+                        <img src="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" class="img-fluid rounded-top" alt="">
+                        
                         <input type="file" name="foto1" class="form-control @error('foto1') is-invalid @enderror" required accept="image/*">
                         <div class="form-text">ACEPTA SOLO IMAGENES (.png .jpg .jpeg)</div>
                         @error('foto1')
@@ -63,11 +62,10 @@
                         <strong>FOTO 2</strong>
                     </div>
                     <div class="card-body">
-                        @if (Storage::exists($servicio->foto_2??''))
-                            <a href="{{ Storage::url($servicio->foto_2) }}" target="_blanck">
-                                <img src="{{ Storage::url($servicio->foto_2) }}" class="img-fluid rounded-top" alt="">
-                            </a>
-                        @endif
+                        
+                        
+                        <img src="{{ route('servicios.ver-foto',[$servicio->id,2]) }}" class="img-fluid rounded-top" alt="">
+                        
                         <input type="file" name="foto2" class="form-control @error('foto2') is-invalid @enderror" required accept="image/*">
                         <div class="form-text">ACEPTA SOLO IMAGENES (.png .jpg .jpeg)</div>
                         @error('foto2')
@@ -89,11 +87,9 @@
                         <strong>FOTO 3</strong>
                     </div>
                     <div class="card-body">
-                        @if (Storage::exists($servicio->foto_3??''))
-                            <a href="{{ Storage::url($servicio->foto_3) }}" target="_blanck">
-                                <img src="{{ Storage::url($servicio->foto_3) }}" class="img-fluid rounded-top" alt="">
-                            </a>
-                        @endif
+                        
+                        <img src="{{ route('servicios.ver-foto',[$servicio->id,3]) }}" class="img-fluid rounded-top" alt="">
+                        
                         <input type="file" name="foto3" class="form-control @error('foto3') is-invalid @enderror" required accept="image/*">
                         <div class="form-text">ACEPTA SOLO IMAGENES (.png .jpg .jpeg)</div>
                         @error('foto3')
@@ -115,11 +111,9 @@
                         <strong>FOTO 4</strong>
                     </div>
                     <div class="card-body">
-                        @if (Storage::exists($servicio->foto_4??''))
-                            <a href="{{ Storage::url($servicio->foto_4) }}" target="_blanck">
-                                <img src="{{ Storage::url($servicio->foto_4) }}" class="img-fluid rounded-top" alt="">
-                            </a>
-                        @endif
+                        
+                        <img src="{{ route('servicios.ver-foto',[$servicio->id,4]) }}" class="img-fluid rounded-top" alt="">
+                        
                         <input type="file" name="foto4" class="form-control @error('foto4') is-invalid @enderror" required accept="image/*">
                         <div class="form-text">ACEPTA SOLO IMAGENES (.png .jpg .jpeg)</div>
                         @error('foto4')

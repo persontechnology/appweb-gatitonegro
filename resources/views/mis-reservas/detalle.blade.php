@@ -118,9 +118,9 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a href="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" class="me-3">
+                                
                                     <img src="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" class="rounded-circle" width="32" height="32" alt="">
-                                </a>
+                                
 
                                 <div>
                                     <a href="{{ route('mis-reserva.detalle',$re->id) }}" class="text-body fw-semibold">

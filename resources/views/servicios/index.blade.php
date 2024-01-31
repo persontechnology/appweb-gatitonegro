@@ -52,15 +52,8 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                   
-
-                                    @if (Storage::exists($servicio->foto_1??''))
-                                        <a href="{{ Storage::url($servicio->foto_1) }}" target="_blanck" class="me-3">
-                                            <img src="{{ Storage::url($servicio->foto_1) }}" class="rounded-circle" width="32" height="32" alt="">
-                                        </a>
-                                    @else
-                                    <a class="badge bg-danger" href="{{ route('canchas.fotos',$servicio->id) }}">SUBIR FOTOS </a>
-                                    @endif
+                                      
+                                    <img src="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" class="rounded-circle" width="32" height="32" alt="">
 
                                     <div>
                                         <strong>{{ $servicio->nombre }}</strong>

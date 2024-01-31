@@ -68,9 +68,9 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a href="{{ Storage::url($re->servicio->foto_1) }}" class="me-3">
-                                    <img src="{{ Storage::url($re->servicio->foto_1) }}" class="rounded-circle" width="32" height="32" alt="">
-                                </a>
+                                
+                                <img src="{{ route('servicios.ver-foto',[$re->servicio->id,1]) }}" class="rounded-circle" width="32" height="32" alt="">
+                                
 
                                 <div>
                                     <a href="{{ route('mis-reserva.detalle',$re->id) }}" class="text-body fw-semibold">
