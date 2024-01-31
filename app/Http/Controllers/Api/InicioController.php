@@ -26,10 +26,10 @@ class InicioController extends Controller
                 'capacidad_personas'=>$servicio->capacidad_personas,
                 'dimensiones'=>$servicio->dimensiones,
                 'precio_hora'=>$servicio->precio_hora,
-                'foto_1'=>asset(Storage::url($servicio->foto_1)),
-                'foto_2'=>asset(Storage::url($servicio->foto_2)),
-                'foto_3'=>asset(Storage::url($servicio->foto_3)),
-                'foto_4'=>asset(Storage::url($servicio->foto_4)),
+                'foto_1'=>route('servicios.ver-foto',[$servicio->id,1]),
+                'foto_2'=>route('servicios.ver-foto',[$servicio->id,2]),
+                'foto_3'=>route('servicios.ver-foto',[$servicio->id,3]),
+                'foto_4'=>route('servicios.ver-foto',[$servicio->id,4]),
                 'tipo_reserva'=>$servicio->tipoReserva->nombre,
             ];
         });
