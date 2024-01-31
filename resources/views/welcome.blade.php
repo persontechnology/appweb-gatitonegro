@@ -144,7 +144,6 @@
                                     </figure>
                                     <div class="cart-btn">
                                         <a href="{{ route('reserva.detalle',$cancha->id) }}">RESERVAR</a>
-                                        
                                     </div>
                                 </div>
                                 <div class="product-detail">
@@ -154,7 +153,6 @@
                                     <h3>{{ $cancha->tipoReserva->nombre }}</h3>
                                     <div class="product-price">
                                         ${{ $cancha->precio_hora }} la hora. <br>
-                                        
                                         Capacidad para {{ $cancha->capacidad_personas }} personas.
                                     </div>
                                 </div>
