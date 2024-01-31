@@ -140,8 +140,7 @@
                             <div class="product-item">
                                 <div class="product-img">
                                     <figure>
-                                        <img src="{{ Storage::url($cancha->foto_1) }}" alt="product-img" width="175px" height="150px">
-                                        
+                                        <img src="{{ route('servicios.ver-foto',[$cancha->id,1]) }}" alt="product-img" width="175px" height="150px">
                                     </figure>
                                     <div class="cart-btn">
                                         <a href="{{ route('reserva.detalle',$cancha->id) }}">RESERVAR</a>

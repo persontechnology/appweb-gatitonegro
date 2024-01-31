@@ -37,24 +37,24 @@
             <p>{{ $servicio->detalle }}</p>
         <div class="row">
             <div class="col-lg-6">
-                <img id="img_01" src="{{ Storage::url($servicio->foto_1) }}" data-zoom-image="{{ Storage::url($servicio->foto_1) }}" width="190" />
+                <img id="img_01" src="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" data-zoom-image="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" width="190" />
 
                 <div id="gal1">
 
-                    <a href="#" data-image="{{ Storage::url($servicio->foto_1) }}" data-zoom-image="{{ Storage::url($servicio->foto_1) }}">
-                        <img id="img_01" src="{{ Storage::url($servicio->foto_1) }}" width="45"/>
+                    <a href="#" data-image="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" data-zoom-image="{{ route('servicios.ver-foto',[$servicio->id,1]) }}">
+                        <img id="img_01" src="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" width="45"/>
                     </a>
 
-                    <a href="#" data-image="{{ Storage::url($servicio->foto_2) }}" data-zoom-image="{{ Storage::url($servicio->foto_2) }}">
-                        <img id="img_01" src="{{ Storage::url($servicio->foto_2) }}" width="45"/>
+                    <a href="#" data-image="{{ route('servicios.ver-foto',[$servicio->id,2]) }}" data-zoom-image="{{ route('servicios.ver-foto',[$servicio->id,2]) }}">
+                        <img id="img_01" src="{{ route('servicios.ver-foto',[$servicio->id,2]) }}" width="45"/>
                     </a>
 
-                    <a href="#" data-image="{{ Storage::url($servicio->foto_3) }}" data-zoom-image="{{ Storage::url($servicio->foto_3) }}">
-                        <img id="img_01" src="{{ Storage::url($servicio->foto_3) }}" width="45" />
+                    <a href="#" data-image="{{ route('servicios.ver-foto',[$servicio->id,3]) }}" data-zoom-image="{{ route('servicios.ver-foto',[$servicio->id,3]) }}">
+                        <img id="img_01" src="{{ route('servicios.ver-foto',[$servicio->id,3]) }}" width="45" />
                     </a>
 
-                    <a href="#" data-image="{{ Storage::url($servicio->foto_4) }}" data-zoom-image="{{ Storage::url($servicio->foto_4) }}">
-                        <img id="img_01" src="{{ Storage::url($servicio->foto_4) }}" width="45"/>
+                    <a href="#" data-image="{{ route('servicios.ver-foto',[$servicio->id,4]) }}" data-zoom-image="{{ route('servicios.ver-foto',[$servicio->id,4]) }}">
+                        <img id="img_01" src="{{ route('servicios.ver-foto',[$servicio->id,4]) }}" width="45"/>
                     </a>
 
                 </div>
@@ -118,8 +118,8 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a href="{{ Storage::url($re->servicio->foto_1) }}" class="me-3">
-                                    <img src="{{ Storage::url($re->servicio->foto_1) }}" class="rounded-circle" width="32" height="32" alt="">
+                                <a href="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" class="me-3">
+                                    <img src="{{ route('servicios.ver-foto',[$servicio->id,1]) }}" class="rounded-circle" width="32" height="32" alt="">
                                 </a>
 
                                 <div>

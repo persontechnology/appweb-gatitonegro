@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicio;
 use App\Models\TipoReserva;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -142,5 +143,26 @@ class ServicioController extends Controller
         $cancha->save();
         return redirect()->route('servicios.fotos',$cancha->id)->with('success','FOTO GUARDADO');
 
+    }
+
+    public function verFoto($servicioId,$numero) {
+        $servicio=Servicio::find($servicioId);
+        switch ($numero) {
+            case 1:
+                return Storage::get($servicio->foto_1);
+                break;
+            case 2:
+                return Storage::get($servicio->foto_2);
+                break;
+            case 3:
+                return Storage::get($servicio->foto_3);
+                break;
+            case 4:
+                return Storage::get($servicio->foto_4);
+                break;
+            default:
+                # code...
+                break;
+        }
     }
 }

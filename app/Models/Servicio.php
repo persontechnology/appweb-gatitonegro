@@ -33,4 +33,6 @@ class Servicio extends Model
     {
         return $this->hasMany(Reserva::class);
     }
+
+    
 }
