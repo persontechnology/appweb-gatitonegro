@@ -43,7 +43,7 @@
 <body>
 
 	<!-- Main navbar -->
-	<div class="navbar navbar-dark bg-pink navbar-expand-xl navbar-static shadow">
+	<div class="navbar navbar-dark bg-primary navbar-expand-xl navbar-static shadow">
 		<div class="container-fluid">
 			<div class="navbar-brand flex-1">
 				<a href="{{ route('inicio') }}" class="d-inline-flex align-items-center">

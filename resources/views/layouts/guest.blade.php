@@ -26,7 +26,7 @@
 <body>
 
 	<!-- Main navbar -->
-	<div class="navbar navbar-dark bg-pink navbar-static py-2">
+	<div class="navbar navbar-dark bg-primary navbar-static py-2">
 		<div class="container-fluid">
 			<div class="navbar-brand">
 				<a href="{{ url('/') }}" class="d-inline-flex align-items-center">
