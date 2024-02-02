@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc
+class ComposerStaticInit2a2fd01e738c074226ac9144386fe82f
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -368,8 +368,8 @@ class ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -561,6 +561,8 @@ class ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
+        'App\\Http\\Controllers\\Api\\InicioController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/InicioController.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
         'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
@@ -571,10 +573,13 @@ class ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc
         'App\\Http\\Controllers\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisteredUserController.php',
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DatoController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatoController.php',
         'App\\Http\\Controllers\\MisReservas' => __DIR__ . '/../..' . '/app/Http/Controllers/MisReservas.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\ReservaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservaController.php',
+        'App\\Http\\Controllers\\ReservasAdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservasAdminController.php',
         'App\\Http\\Controllers\\ServicioController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServicioController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -587,10 +592,13 @@ class ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Models\\Dato' => __DIR__ . '/../..' . '/app/Models/Dato.php',
         'App\\Models\\Reserva' => __DIR__ . '/../..' . '/app/Models/Reserva.php',
         'App\\Models\\Servicio' => __DIR__ . '/../..' . '/app/Models/Servicio.php',
         'App\\Models\\TipoReserva' => __DIR__ . '/../..' . '/app/Models/TipoReserva.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Notifications\\EnviarReserva' => __DIR__ . '/../..' . '/app/Notifications/EnviarReserva.php',
+        'App\\Notifications\\ResetPasswordNoty' => __DIR__ . '/../..' . '/app/Notifications/ResetPasswordNoty.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -6601,9 +6609,9 @@ class ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit33f61e2f12043d8f7d5710c0f48431bc::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2a2fd01e738c074226ac9144386fe82f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2a2fd01e738c074226ac9144386fe82f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit2a2fd01e738c074226ac9144386fe82f::$classMap;
 
         }, null, ClassLoader::class);
     }
